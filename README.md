@@ -1,1 +1,3 @@
-# demoWeather
+# 微信小程序--天气查询
+##### 演示：
+![](./image/view.gif)
