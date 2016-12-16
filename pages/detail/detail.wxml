@@ -1,0 +1,35 @@
+<view wx:if="{{weatherInfo.error==0}}">
+
+<view  class="weathernow">
+<text>
+{{weatherInfo.results[0].weather_data[0].date}}
+</text>
+<image class="weatherimg" src="{{weatherInfo.results[0].weather_data[0].dayPictureUrl}}" mode="aspectFit"/>
+
+<image class="weatherimg" src="{{weatherInfo.results[0].weather_data[0].nightPictureUrl}}" />
+<text>
+{{weatherInfo.results[0].weather_data[0].weather}}  {{weatherInfo.results[0].weather_data[0].wind}} {{weatherInfo.results[0].weather_data[0].temperature}}
+</text>
+</view>
+<view wx:for="{{weatherInfo.results[0].index}}">
+<view class="textclass"><text class="title">{{item.tipt}}:</text>{{item.des}}</view>
+</view>
+<view  class="weatherlist">
+<view wx:for="{{weatherInfo.results[0].weather_data}}">
+<view wx:if="{{index!=0}}">
+<text>
+{{item.date}}
+</text>
+<image class="weatherimg" src="{{item.dayPictureUrl}}" mode="aspectFit"/>
+
+<image class="weatherimg" src="{{item.nightPictureUrl}}" />
+<text>
+{{item.weather}}  {{item.wind}} {{item.temperature}}
+</text>
+</view>
+<view wx:else></view>
+</view>
+</view>
+</view>
+<view wx:elif="{{weatherInfo.error==-1}}">{{weatherInfo.msg}}</view>
+<view wx:else>未找到该城市</view>
